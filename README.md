@@ -9,3 +9,9 @@
 
 # How We Built It
 * Struct is built through Django, Django REST Framework, and React.js
+
+
+
+
+
+
