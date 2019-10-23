@@ -1,7 +1,7 @@
 import React from 'react'
 import Calendar from 'react-calendar'
 
-const MainFunc = (props) => {
+const Widgets = (props) => {
 
   if (props.index === 1){
 
@@ -19,7 +19,7 @@ const MainFunc = (props) => {
 
     return(
 
-      <div className="MainFunc">
+      <div className="TasksWidget">
         <p>Tasks</p>
       </div>
 
@@ -33,7 +33,7 @@ if (props.index === 3){
 
   return(
 
-    <div className="MainFunc">
+    <div className="StickyNotesWidget">
       <p>Stickynotes</p>
     </div>
     
@@ -45,4 +45,4 @@ if (props.index === 3){
 }
 
 
-export default MainFunc;
+export default Widgets;

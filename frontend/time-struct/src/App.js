@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import MainFunc from './MainFunc/MainFunc.js'
+import Widgets from './Widgets/Widgets'
 
 class App extends Component {
 
@@ -42,7 +42,7 @@ class App extends Component {
       <button onClick = {this.changeToTasks}>Tasks</button>
       <button onClick = {this.changeToStickyNotes}>Sticky Notes</button>
 
-      <MainFunc index = {this.state.Widget}/>
+      <Widgets index = {this.state.Widget}/>
 
     </div>
 
