@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Calendar from 'react-calendar'
 
 const MainFunc = (props) => {
 
@@ -7,8 +7,8 @@ const MainFunc = (props) => {
 
   return(
 
-  <div className='MainFunc'>
-    <p>Calender</p>
+  <div className='CalendarWidget'>
+    <Calendar className='CalendarWidget'/>
   </div>
 
   );
