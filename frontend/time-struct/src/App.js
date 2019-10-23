@@ -5,13 +5,13 @@ import MainFunc from './MainFunc/MainFunc.js'
 class App extends Component {
 
   state = {
-    Widget = 1,
+    Widget: 1,
   };
 
   changeToCalender = () => {
       this.setState(
         {
-          Widget = 1
+          Widget: 1
         }
       )
   };
@@ -19,7 +19,7 @@ class App extends Component {
   changeToTasks = () => {
     this.setState(
       {
-        Widget = 2
+        Widget: 2
       }
     )
   };
@@ -27,7 +27,7 @@ class App extends Component {
   changeToStickyNotes = () => {
     this.setState(
       {
-        Widget = 3
+        Widget: 3
       }
     )
   };
@@ -42,7 +42,7 @@ class App extends Component {
       <button onClick = {this.changeToTasks}>Tasks</button>
       <button onClick = {this.changeToStickyNotes}>Sticky Notes</button>
 
-      <MainFunc index = {state.Widget}/>
+      <MainFunc index = {this.state.Widget}/>
 
     </div>
 
