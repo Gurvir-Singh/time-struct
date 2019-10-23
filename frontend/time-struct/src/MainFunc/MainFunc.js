@@ -27,8 +27,8 @@ const MainFunc = (props) => {
 
   }
 
-}
-/*
+
+
 if (props.index === 3){
 
   return(
@@ -41,8 +41,8 @@ if (props.index === 3){
 
   }
 
-*/
 
+}
 
 
 export default MainFunc;
