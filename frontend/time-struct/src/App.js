@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import Widgets from './Widgets/Widgets';
-import Button from 'antd/es/button';
+//import Button from 'antd/es/button';
 
 class App extends Component {
 

@@ -1,5 +1,6 @@
 import React from 'react'
-import Calendar from 'react-calendar'
+import Calendar from 'antd/es/calendar'
+import moment from 'moment';
 
 const Widgets = (props) => {
 
@@ -8,7 +9,16 @@ const Widgets = (props) => {
   return(
 
   <div className='CalendarWidget'>
-    <Calendar className='CalendarWidget'/>
+    <Calendar 
+    className='CalendarWidget'
+    /*
+    dateCellRender={dateCellRender}
+    monthCellRender={monthCellRender}
+    onPanelChange={onPanelChange}
+    onSelect={onSelect}
+    */
+    fullscreen={false}
+    />
   </div>
 
   );
