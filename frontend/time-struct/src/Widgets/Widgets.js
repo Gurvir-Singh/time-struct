@@ -1,6 +1,7 @@
 import React from 'react'
 import Calendar from 'antd/es/calendar'
-import moment from 'moment';
+//import moment from 'moment';
+import StickyNotes from '../StickyNotes/StickyNotes.js'
 
 const Widgets = (props) => {
 
@@ -44,7 +45,9 @@ if (props.index === 3){
   return(
 
     <div className="StickyNotesWidget">
-      <p>Stickynotes</p>
+      <StickyNotes
+      text = "Do Homework" 
+      />
     </div>
     
   );
