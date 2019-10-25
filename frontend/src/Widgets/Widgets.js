@@ -1,6 +1,6 @@
 import React from 'react'
 import Calendar from 'antd/es/calendar'
-//import moment from 'moment';
+import moment from 'moment';
 
 const Widgets = (props) => {
 
