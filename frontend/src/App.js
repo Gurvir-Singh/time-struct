@@ -6,44 +6,27 @@ import Widgets from './Widgets/Widgets';
 class App extends Component {
 
   state = {
-    Widget: 1,
+    CurrentWidget: "Calendar",
   };
 
-  changeToCalender = () => {
+  changeToWidget = (WidgetName) => {
       this.setState(
         {
-          Widget: 1
+          CurrentWidget: WidgetName
         }
       )
   };
-
-  changeToTasks = () => {
-    this.setState(
-      {
-        Widget: 2
-      }
-    )
-  };
-
-  changeToStickyNotes = () => {
-    this.setState(
-      {
-        Widget: 3
-      }
-    )
-  };
-
 
   render(){
 
   return (
 
     <div className="App">
-      <button onClick = {this.changeToCalender}>Calender</button>
-      <button onClick = {this.changeToTasks}>Tasks</button>
-      <button onClick = {this.changeToStickyNotes}>Sticky Notes</button>
+      <button onClick = {this.changeToWidget.bind(this, "Calendar")}>Calender</button>
+      <button onClick = {this.changeToWidget.bind(this, "Tasks")}>Tasks</button>
+      <button onClick = {this.changeToWidget.bind(this, "StickyNotes")}>Sticky Notes</button>
 
-      <Widgets index = {this.state.Widget}/>
+      <Widgets index = {this.state.CurrentWidget}/>
 
     </div>
 

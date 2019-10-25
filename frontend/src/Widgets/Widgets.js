@@ -1,10 +1,10 @@
 import React from 'react'
 import Calendar from 'antd/es/calendar'
-import moment from 'moment';
+//import moment from 'moment';
 
 const Widgets = (props) => {
 
-  if (props.index === 1){
+  if (props.index === "Calendar"){
 
   return(
 
@@ -25,7 +25,7 @@ const Widgets = (props) => {
   }
 
 
-  if (props.index === 2){
+  if (props.index === "Tasks"){
 
     return(
 
@@ -39,7 +39,7 @@ const Widgets = (props) => {
 
 
 
-if (props.index === 3){
+if (props.index === "StickyNotes"){
 
   return(
 
