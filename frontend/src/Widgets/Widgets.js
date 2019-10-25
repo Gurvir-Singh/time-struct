@@ -1,23 +1,21 @@
 import React from 'react'
-import Calendar from 'antd/es/calendar'
-import moment from 'moment';
+import FullCalendar from '@fullcalendar/react'
+import dayGridPlugin from '@fullcalendar/daygrid'  
 
 const Widgets = (props) => {
 
-  if (props.index === "Calendar"){
+  if (props.WidgetName === "Calendar"){
 
   return(
 
   <div className='CalendarWidget'>
-    <Calendar 
-    className='CalendarWidget'
-    /*
-    dateCellRender={dateCellRender}
-    monthCellRender={monthCellRender}
-    onPanelChange={onPanelChange}
-    onSelect={onSelect}
-    */
-    fullscreen={false}
+    <FullCalendar 
+    defaultView="dayGridMonth"
+    plugins={[dayGridPlugin]}
+    events={[
+      { title: 'event 1', date: '2019-04-01' },
+      { title: 'event 2', date: '2019-04-02' }
+    ]}
     />
   </div>
 
@@ -25,7 +23,7 @@ const Widgets = (props) => {
   }
 
 
-  if (props.index === "Tasks"){
+  if (props.WidgetName === "Tasks"){
 
     return(
 
@@ -39,7 +37,7 @@ const Widgets = (props) => {
 
 
 
-if (props.index === "StickyNotes"){
+if (props.WidgetName === "StickyNotes"){
 
   return(
 

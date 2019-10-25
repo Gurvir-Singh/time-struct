@@ -1,15 +1,28 @@
-@import '~antd/dist/antd.css';
+@import '~@fullcalendar/core/main.css';
+@import '~@fullcalendar/daygrid/main.css';
+
+
 
 .App {
+
+}
+
+.Buttons {
+  /*
   width: 100vw;
-  /*height: 100vh;*/
+  height: 100vh;
   text-align: center;
-  /*color: white;
+  color: white;
   background-color: black;
   */
+  width: 100vw;
+  text-align: center;
 }
 
 .CalendarWidget {
+
+  /*
   width: 100%;
   margin: auto;
+  */
 }

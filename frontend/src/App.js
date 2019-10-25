@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import Widgets from './Widgets/Widgets';
-//import Button from 'antd/es/button';
+
 
 class App extends Component {
 
@@ -9,10 +9,10 @@ class App extends Component {
     CurrentWidget: "Calendar",
   };
 
-  switchWidgetHandler = (WidgetName) => {
+  switchWidgetHandler = (switchedToWidget) => {
       this.setState(
         {
-          CurrentWidget: WidgetName
+          CurrentWidget: switchedToWidget
         }
       )
   };
@@ -22,12 +22,12 @@ class App extends Component {
   return (
 
     <div className="App">
+      <div className="Buttons">
       <button onClick = {this.switchWidgetHandler.bind(this, "Calendar")}>Calender</button>
       <button onClick = {this.switchWidgetHandler.bind(this, "Tasks")}>Tasks</button>
       <button onClick = {this.switchWidgetHandler.bind(this, "StickyNotes")}>Sticky Notes</button>
-
-      <Widgets index = {this.state.CurrentWidget}/>
-
+      </div>
+      <Widgets WidgetName = {this.state.CurrentWidget}/>
     </div>
 
   );
