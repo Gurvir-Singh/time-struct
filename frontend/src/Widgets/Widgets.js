@@ -1,22 +1,24 @@
 import React from 'react'
 import Calendar from 'antd/es/calendar'
-//import moment from 'moment';
+
+
 
 const Widgets = (props) => {
 
-  if (props.index === "Calendar"){
+  /*
+  This function takes in properties from App.js to check for which state the app is in. 
+  Uses this to determine which widget to return
+  */
+
+
+  //Checks for Calendar state
+  if (props.WidgetName === "Calendar"){
 
   return(
 
   <div className='CalendarWidget'>
     <Calendar 
     className='CalendarWidget'
-    /*
-    dateCellRender={dateCellRender}
-    monthCellRender={monthCellRender}
-    onPanelChange={onPanelChange}
-    onSelect={onSelect}
-    */
     fullscreen={false}
     />
   </div>
@@ -24,8 +26,8 @@ const Widgets = (props) => {
   );
   }
 
-
-  if (props.index === "Tasks"){
+  //Checks for Tasks state
+  if (props.WidgetName === "Tasks"){
 
     return(
 
@@ -38,18 +40,18 @@ const Widgets = (props) => {
   }
 
 
+  //Checks for Calendar state
+  if (props.WidgetName === "StickyNotes"){
 
-if (props.index === "StickyNotes"){
+    return(
 
-  return(
+      <div className="StickyNotesWidget">
+        <p>Stickynotes</p>
+      </div>
+      
+    );
 
-    <div className="StickyNotesWidget">
-      <p>Stickynotes</p>
-    </div>
-    
-  );
-
-  }
+    }
 
 
 }
