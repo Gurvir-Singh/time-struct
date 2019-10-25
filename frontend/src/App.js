@@ -9,7 +9,7 @@ class App extends Component {
     CurrentWidget: "Calendar",
   };
 
-  changeToWidget = (WidgetName) => {
+  switchWidgetHandler = (WidgetName) => {
       this.setState(
         {
           CurrentWidget: WidgetName
@@ -22,9 +22,9 @@ class App extends Component {
   return (
 
     <div className="App">
-      <button onClick = {this.changeToWidget.bind(this, "Calendar")}>Calender</button>
-      <button onClick = {this.changeToWidget.bind(this, "Tasks")}>Tasks</button>
-      <button onClick = {this.changeToWidget.bind(this, "StickyNotes")}>Sticky Notes</button>
+      <button onClick = {this.switchWidgetHandler.bind(this, "Calendar")}>Calender</button>
+      <button onClick = {this.switchWidgetHandler.bind(this, "Tasks")}>Tasks</button>
+      <button onClick = {this.switchWidgetHandler.bind(this, "StickyNotes")}>Sticky Notes</button>
 
       <Widgets index = {this.state.CurrentWidget}/>
 
