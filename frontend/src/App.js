@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import Widgets from '../components/Widgets/Widgets';
+import Widgets from './components/Widgets/Widgets.js';
 import Axios from 'axios';
 
 class App extends Component {
@@ -21,7 +21,7 @@ class App extends Component {
           CurrentWidget: switchedToWidget
         }
       )
-  };
+  }; 
 
   componentDidMount() {
     Axios.get('http://jsonplaceholder.typicode.com/users')

@@ -5,43 +5,51 @@ import Tasks from '../Tasks/Tasks.js'
 
 const Widgets = (props) => {
 
-  if (props.WidgetName === "Calendar"){
+  switch (props.WidgetName){
 
-  return(
+    case "Calendar":
 
-  <div className='CalendarWidget'>
-    <Calendar />
-  </div>
+      return(
 
-  );
-  }
-
-  if (props.WidgetName === "Tasks"){
-
-    return(
-
-      <div className="TasksWidget">
-        <Tasks />
+      <div className='CalendarWidget'>
+        <Calendar />
       </div>
 
-    );
+      );
 
+    
+    case "Tasks":
+
+      return(
+
+        <div className="TasksWidget">
+          <Tasks />
+        </div>
+
+      );
+
+
+    case "StickyNotes":
+
+      return(
+
+          <div className="StickyNotesWidget">
+            <StickyNotes />
+          </div>
+          
+        );
+
+    
+
+    default:
+      return(
+
+        <div className='CalendarWidget'>
+           <Calendar />
+        </div>
+    
+        );
   }
-
-
-
-if (props.WidgetName === "StickyNotes"){
-
-  return(
-
-      <div className="StickyNotesWidget">
-        <StickyNotes />
-      </div>
-      
-    );
-
-    }
-
 
 }
 

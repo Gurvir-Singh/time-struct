@@ -5,7 +5,7 @@ import interactionPlugin from '@fullcalendar/interaction'
 
 const Calendar = () => {
 
-    dateClickHandler = (arg) => {
+    const dateClickHandler = (arg) => {
         alert(arg.date)
     }
 
@@ -19,7 +19,7 @@ const Calendar = () => {
                 ]}
                 dateClick={dateClickHandler}
             />
-
+  
         </div>
     );
     
