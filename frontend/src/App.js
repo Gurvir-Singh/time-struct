@@ -22,7 +22,7 @@ class App extends Component {
         }
       )
   }; 
-
+  /*
   componentDidMount() {
     Axios.get('http://jsonplaceholder.typicode.com/users')
     .then(response => {
@@ -33,7 +33,7 @@ class App extends Component {
     });
 
   }
-
+  */
   render(){
 
   return (
