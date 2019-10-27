@@ -6,7 +6,7 @@ function App() {
   return <div className="App"></div>;
 }
 
-mapStateToProps = state => {
+const mapStateToProps = state => {
   return {
     isAuthenticated: state.token !== null
   };
