@@ -12,7 +12,7 @@ const Widgets = (props) => {
       return(
 
       <div className='CalendarWidget'>
-        <Calendar />
+        <Calendar DayToAddEventTo = {props.DayClickedOn}/>
       </div>
 
       );
@@ -45,7 +45,9 @@ const Widgets = (props) => {
       return(
 
         <div className='CalendarWidget'>
-           <Calendar />
+          <p>{props.DayClickedOn}</p>
+           <Calendar DayToAddEventTo = {props.DayClickedOn}/>
+           
         </div>
     
         );

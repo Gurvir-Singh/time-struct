@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import Widgets from './components/Widgets/Widgets.js';
 import Axios from 'axios';
+import getTodaysDate from './Today.js'
 //import FullCalendar from '@fullcalendar/react';
 
 class App extends Component {
@@ -13,8 +14,8 @@ class App extends Component {
   */
   
   state = {
-    CurrentWidget: "Tasks",
-    eventDay: this.getDate
+    CurrentWidget: "Calendar",
+    eventDay: getTodaysDate()
   };
 
   switchWidgetHandler = (switchedToWidget) => {
@@ -50,12 +51,12 @@ class App extends Component {
         <button onClick = {this.switchWidgetHandler.bind(this, "Tasks")}>Tasks</button>
         <button onClick = {this.switchWidgetHandler.bind(this, "StickyNotes")}>Sticky Notes</button>
       </div>
-      <Widgets WidgetName = {this.state.CurrentWidget}/>
-
+      <Widgets WidgetName = {this.state.CurrentWidget} DayClickedOn={this.state.eventDay}/>
+      <p>{this.state.eventDay}</p>
     </div>
 
   );
-
+    
   }
 }
 

@@ -8,7 +8,7 @@ const Tasks = () => {
     return (
         
         <div className='TasksWidget'>   
-            <p>Tasks</p>
+            
         </div>
     );
 

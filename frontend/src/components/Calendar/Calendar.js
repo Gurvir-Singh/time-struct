@@ -5,7 +5,7 @@ import interactionPlugin from '@fullcalendar/interaction'
 
 
 
-const Calendar = () => {
+const Calendar = (props) => {
 
     const dateClickHandler = (arg) => {
 
@@ -30,9 +30,11 @@ const Calendar = () => {
     return(
         <div className='CalendarWidget'>
             <h3>Click a date and add and event:</h3>
+            <p>Date selected: {props.DayToAddEventTo}</p>
             <form>
-                <input type='text'></input>
-                <input type='text'></input>
+                <input type='text' placeholder='Event Name'></input>
+                <br></br>
+                <input type='text' placeholder='Description'></input>
             </form>
             <FullCalendar 
                 defaultView="dayGridMonth"
