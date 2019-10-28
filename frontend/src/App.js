@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import Widgets from './components/Widgets/Widgets.js';
 import Axios from 'axios';
+//import FullCalendar from '@fullcalendar/react';
 
 class App extends Component {
 
@@ -10,19 +11,21 @@ class App extends Component {
   Calendar widget render when first opeing the webpage/app
   Has one attribute called Current Widget which takes a string
   */
-
+  
   state = {
-    CurrentWidget: "Calendar",
+    CurrentWidget: "Tasks",
+    eventDay: this.getDate
   };
 
   switchWidgetHandler = (switchedToWidget) => {
+
       this.setState(
         {
           CurrentWidget: switchedToWidget
         }
       )
   }; 
-  /*
+  
   componentDidMount() {
     Axios.get('http://jsonplaceholder.typicode.com/users')
     .then(response => {
@@ -33,18 +36,22 @@ class App extends Component {
     });
 
   }
-  */
+
+  
+
   render(){
 
   return (
 
     <div className="App">
       <div className="Buttons">
-      <button onClick = {this.switchWidgetHandler.bind(this, "Calendar")}>Calender</button>
-      <button onClick = {this.switchWidgetHandler.bind(this, "Tasks")}>Tasks</button>
-      <button onClick = {this.switchWidgetHandler.bind(this, "StickyNotes")}>Sticky Notes</button>
+        
+        <button onClick = {this.switchWidgetHandler.bind(this, "Calendar")}>Calender</button>
+        <button onClick = {this.switchWidgetHandler.bind(this, "Tasks")}>Tasks</button>
+        <button onClick = {this.switchWidgetHandler.bind(this, "StickyNotes")}>Sticky Notes</button>
       </div>
       <Widgets WidgetName = {this.state.CurrentWidget}/>
+
     </div>
 
   );
