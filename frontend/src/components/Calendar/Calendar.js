@@ -2,28 +2,28 @@ import React from 'react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid' 
 import interactionPlugin from '@fullcalendar/interaction' 
-
-
+//import state from '../../App.js'
+//import getTodaysDate from '../../Today.js'
 
 const Calendar = (props) => {
+    /*
+    state = {
+    eventDay: getTodaysDate()
+    }
+
+    
+    const bruh = () => {   
+        this.setState (
+            {
+                eventDay: "10-26-2019"
+            }
+        )
+    }    
+    */    
 
     const dateClickHandler = (arg) => {
 
-        const style = {
-            position: 'absolute',
-            top: '0',
-            left: '0',
-            width: '100%',
-            height: '100%',
-            zIndex: 2147483647,
-            display: 'block'
-        }
-
-        return (
-            
-            <p id="bruh" style={style}>test</p>
-
-        );
+        console.log(arg.date)
 
     }
 
@@ -35,6 +35,8 @@ const Calendar = (props) => {
                 <input type='text' placeholder='Event Name'></input>
                 <br></br>
                 <input type='text' placeholder='Description'></input>
+                <br></br>
+                <button>Add event</button>
             </form>
             <FullCalendar 
                 defaultView="dayGridMonth"

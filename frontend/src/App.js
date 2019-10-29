@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import './App.css';
-import Widgets from './components/Widgets/Widgets.js';
+import FullCalendar from '@fullcalendar/react'
+import dayGridPlugin from '@fullcalendar/daygrid' 
+import interactionPlugin from '@fullcalendar/interaction' 
 import Axios from 'axios';
 import getTodaysDate from './Today.js'
-//import FullCalendar from '@fullcalendar/react';
+
 
 class App extends Component {
 
@@ -39,23 +41,101 @@ class App extends Component {
   }
 
   
+  dateClickHandler = (arg) => {
+
+    console.log(arg.date) 
+
+}
+  
 
   render(){
 
-  return (
+    switch (this.state.CurrentWidget){
 
-    <div className="App">
-      <div className="Buttons">
-        
-        <button onClick = {this.switchWidgetHandler.bind(this, "Calendar")}>Calender</button>
-        <button onClick = {this.switchWidgetHandler.bind(this, "Tasks")}>Tasks</button>
-        <button onClick = {this.switchWidgetHandler.bind(this, "StickyNotes")}>Sticky Notes</button>
-      </div>
-      <Widgets WidgetName = {this.state.CurrentWidget} DayClickedOn={this.state.eventDay}/>
-      <p>{this.state.eventDay}</p>
-    </div>
+      case "Calendar":
+  
+        return(
+  
+        <div className="App">
 
-  );
+          <div className="Buttons">        
+            <button onClick = {this.switchWidgetHandler.bind(this, "Calendar")}>Calender</button>
+            <button onClick = {this.switchWidgetHandler.bind(this, "Tasks")}>Tasks</button>
+            <button onClick = {this.switchWidgetHandler.bind(this, "StickyNotes")}>Sticky Notes</button>
+          </div>
+
+          <div className='CalendarWidget'>
+            <h3>Click a date and add and event:</h3>
+            <p>Date selected: {this.state.eventDay}</p>
+            <form>
+                <input type='text' placeholder='Event Name'></input>
+                <br></br>
+                <input type='text' placeholder='Description'></input>
+                <br></br>                
+            </form>
+            <button>Add event</button>
+            <FullCalendar 
+                defaultView="dayGridMonth"
+                plugins={[dayGridPlugin, interactionPlugin]}
+                events={[
+                { title: 'Congressional App Challenge Due', date: '2019-11-01' }
+                ]}
+                dateClick={this.dateClickHandler}
+                
+            />
+  
+        </div>
+        </div>
+  
+        );
+  
+      
+      case "Tasks":
+  
+        return(
+  
+        <div className="App">
+          <div className="Buttons">        
+            <button onClick = {this.switchWidgetHandler.bind(this, "Calendar")}>Calender</button>
+            <button onClick = {this.switchWidgetHandler.bind(this, "Tasks")}>Tasks</button>
+            <button onClick = {this.switchWidgetHandler.bind(this, "StickyNotes")}>Sticky Notes</button>
+          </div>
+          
+        </div>
+  
+        );
+  
+  
+      case "StickyNotes":
+  
+        return(
+  
+        <div className="App">
+          <div className="Buttons">        
+            <button onClick = {this.switchWidgetHandler.bind(this, "Calendar")}>Calender</button>
+            <button onClick = {this.switchWidgetHandler.bind(this, "Tasks")}>Tasks</button>
+            <button onClick = {this.switchWidgetHandler.bind(this, "StickyNotes")}>Sticky Notes</button>
+          </div>
+          
+        </div>
+
+          );
+  
+      
+  
+      default:
+        return(
+  
+        <div className="App">
+          <div className="Buttons">        
+            <button onClick = {this.switchWidgetHandler.bind(this, "Calendar")}>Calender</button>
+            <button onClick = {this.switchWidgetHandler.bind(this, "Tasks")}>Tasks</button>
+            <button onClick = {this.switchWidgetHandler.bind(this, "StickyNotes")}>Sticky Notes</button>
+          </div>
+          
+        </div>
+        );
+    }
     
   }
 }
