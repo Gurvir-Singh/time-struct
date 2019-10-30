@@ -10,7 +10,7 @@ const getTodaysDate = () => {
     if (mm < 10) {
     mm = '0' + mm;
     } 
-    today = mm + '-' + dd + '-' + yyyy;
+    today = yyyy + '-' + mm + '-' + dd;
     return today;
 }
 export default getTodaysDate

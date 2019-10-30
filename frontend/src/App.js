@@ -9,6 +9,9 @@ import getTodaysDate from './Today.js'
 
 class App extends Component {
 
+
+  
+
   /*
   Defines the default state as Calendar which makes the 
   Calendar widget render when first opeing the webpage/app
@@ -42,11 +45,25 @@ class App extends Component {
 
   
   dateClickHandler = (arg) => {
+    
+     
+    
+    this.setState(
+      {
+        eventDay: arg.dateStr
+      }
+    ) 
+    
 
-    console.log(arg.date) 
-
-}
+    }
   
+
+    addEventHandler = () => {
+
+      console.log 
+
+    }
+
 
   render(){
 
@@ -67,13 +84,14 @@ class App extends Component {
           <div className='CalendarWidget'>
             <h3>Click a date and add and event:</h3>
             <p>Date selected: {this.state.eventDay}</p>
-            <form>
+            <form onSubmit={this.addEventHandler}>
                 <input type='text' placeholder='Event Name'></input>
                 <br></br>
                 <input type='text' placeholder='Description'></input>
-                <br></br>                
+                <br></br>
+                <button type="submit">Add event</button>                
             </form>
-            <button>Add event</button>
+            
             <FullCalendar 
                 defaultView="dayGridMonth"
                 plugins={[dayGridPlugin, interactionPlugin]}
@@ -81,7 +99,7 @@ class App extends Component {
                 { title: 'Congressional App Challenge Due', date: '2019-11-01' }
                 ]}
                 dateClick={this.dateClickHandler}
-                
+                selectable="true"
             />
   
         </div>
