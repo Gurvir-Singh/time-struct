@@ -50,7 +50,8 @@ class Calendar extends Component {
     }
     
     componentDidMount() {
-        Axios.get("http://127.0.0.1:8000/api/events/")
+    fetch("http://127.0.0.1:8000/api/events/")
+    .then(response => response.json())
     .then(response => {
       console.log(response)
       this.setState(
@@ -58,10 +59,21 @@ class Calendar extends Component {
           events: response
         }
       )
+      this.state.events.map(event => {
+          event['title'] = event['eventName']
+          event['date'] = event['eventDate']
+          delete event['eventName']
+          delete event['eventDate']
+          delete event['eventDesc']
+          delete event['id']
+          delete event['owner']
+      })
+      console.log(this.state.events)
     });
     }
-
+    
     render(){
+        console.log(this.state.events)
         return(
             <div className='CalendarWidget'>
                 <h3>Click a date and add and event:</h3>
@@ -73,9 +85,7 @@ class Calendar extends Component {
                 <FullCalendar 
                     defaultView="dayGridMonth"
                     plugins={[dayGridPlugin, interactionPlugin]}
-                    events={[
-                    { title: 'Congressional App Challenge Due', date: '2019-11-01' }
-                    ]}
+                    events={this.state.events}
                     dateClick={this.dateClickHandler}
                     selectable="false"
                 />
