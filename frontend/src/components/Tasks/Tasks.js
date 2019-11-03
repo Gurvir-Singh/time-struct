@@ -1,10 +1,22 @@
 import React from 'react'
+//import Popover from '@fullcalendar/daygrid/Popover';
 
-const Tasks = () => {
 
-    return(
-        <div className='TasksWidget'>
-            <p>Tasks</p>
+
+const Tasks = props => {
+
+
+    
+
+    return (        
+        <div className='TasksWidget'>   
+            {
+                props.tasks.map(
+                    tasks => (
+                        <p>{tasks.tasks}</p>
+                    )
+                )
+            }
         </div>
     );
 
