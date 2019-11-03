@@ -2,8 +2,8 @@ import React, {Component} from 'react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid' 
 import interactionPlugin from '@fullcalendar/interaction' 
-//import getTodaysDate from '../../Today.js'
-import Axios from 'axios';
+import Axios from 'axios'
+import bootstrapPlugin from '@fullcalendar/bootstrap'
 
 class Calendar extends Component {
 
@@ -12,13 +12,12 @@ class Calendar extends Component {
 
         var d = today.getDate();
         var m = today.getMonth() + 1;
-    
         var y = today.getFullYear();
 
         if (d < 10) {
             d = '0' + d;
         } 
-        
+
         if (m < 10) {
             m = '0' + m;
         } 
@@ -102,6 +101,7 @@ class Calendar extends Component {
     render(){
         //console.log(this.state.events)
         switch (this.state.serverResponded){
+            
             case false:
                 return(
                     <div className='loadingAnimation'>
@@ -113,7 +113,9 @@ class Calendar extends Component {
                 return(
                     <div className='CalendarWidget'>
                         <h3>Click a date and add and event:</h3>
+
                         <p>Date selected: {this.state.eventDay}</p>
+
                         <form onSubmit={this.addEventHandler}>
                             <input onChange={this.inputHandler}  type='text' placeholder='Event Name'></input>
                             <button type="submit">Add Event</button>
@@ -121,10 +123,12 @@ class Calendar extends Component {
                         
                         <FullCalendar 
                             defaultView="dayGridMonth"
-                            plugins={[dayGridPlugin, interactionPlugin]}
+                            plugins={[dayGridPlugin, bootstrapPlugin, interactionPlugin]}
                             events={this.state.events}
                             dateClick={this.dateClickHandler}
                             selectable="false"
+                            
+                            
                         />
             
                     </div>

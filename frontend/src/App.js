@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import Axios from 'axios';
-import getTodaysDate from './Today.js'
+
 //import { timeAsMs } from '@fullcalendar/core/datelib/marker';
 //import { newExpression } from '@babel/types';
 import Tasks from './components/Tasks/Tasks.js'
@@ -20,7 +20,6 @@ class App extends Component {
   
   state = {
     CurrentWidget: "Calendar",
-    eventDay: getTodaysDate(),
     EventToAddName: "",
     Events: [],
     Tasks: ["bruh"]
