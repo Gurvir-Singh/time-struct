@@ -1,36 +1,32 @@
-import React from 'react'
+import React, {useState} from 'react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid' 
 import interactionPlugin from '@fullcalendar/interaction' 
+import getTodaysDate from '../../Today.js'
 //import state from '../../App.js'
 //import getTodaysDate from '../../Today.js'
 
 const Calendar = (props) => {
-    /*
-    state = {
-    eventDay: getTodaysDate()
-    }
-
-    
-    const bruh = () => {   
-        this.setState (
-            {
-                eventDay: "10-26-2019"
-            }
-        )
-    }    
-    */    
-
+    const [ EventDayState, SetEventDayState ] = useState(
+        {
+            eventDay: getTodaysDate()
+        }
+    );
+  
     const dateClickHandler = (arg) => {
 
-        console.log(arg.date)
+        SetEventDayState(
+            {
+                eventDay: getTodaysDate()
+            }
+        );
 
     }
 
     return(
         <div className='CalendarWidget'>
             <h3>Click a date and add and event:</h3>
-            <p>Date selected: {props.DayToAddEventTo}</p>
+            <p>Date selected: {EventDayState}</p>
             <form>
                 <input type='text' placeholder='Event Name'></input>
                 <br></br>

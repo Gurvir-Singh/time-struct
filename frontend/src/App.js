@@ -1,13 +1,11 @@
 import React, {Component} from 'react';
 import './App.css';
-import FullCalendar from '@fullcalendar/react'
-import dayGridPlugin from '@fullcalendar/daygrid' 
-import interactionPlugin from '@fullcalendar/interaction' 
 import Axios from 'axios';
 import getTodaysDate from './Today.js'
 //import { timeAsMs } from '@fullcalendar/core/datelib/marker';
 //import { newExpression } from '@babel/types';
-
+import Tasks from './components/Tasks/Tasks.js'
+import Calendar from './components/Calendar/Calendar.js'
 
 class App extends Component {
 
@@ -24,8 +22,8 @@ class App extends Component {
     CurrentWidget: "Calendar",
     eventDay: getTodaysDate(),
     EventToAddName: "",
-    Events: []
-
+    Events: [],
+    Tasks: ["bruh"]
   };
 
 
@@ -71,8 +69,9 @@ class App extends Component {
     addEventHandler = () => {
 
       let EventToAdd = {
-        title: this.state.EventToAddName,
-        date: this.state.eventDay
+        eventName: this.state.EventToAddName,
+        eventDesc: "Birthday",
+        eventDate: this.state.eventDay
       }
       
       console.log(EventToAdd)
@@ -92,7 +91,7 @@ class App extends Component {
     changeNameHandler = event => {
       this.setState (
         {
-        EventToAddName: event.target.value
+          EventToAddName: event.target.value
         }
       )
     }
@@ -108,32 +107,8 @@ class App extends Component {
   
         return(
   
-        <div className="App">
-
-          <div className="Buttons">        
-            <button onClick = {this.switchWidgetHandler.bind(this, "Calendar")}>Calender</button>
-            <button onClick = {this.switchWidgetHandler.bind(this, "Tasks")}>Tasks</button>
-            <button onClick = {this.switchWidgetHandler.bind(this, "StickyNotes")}>Sticky Notes</button>
-          </div>
-
-          <div className='CalendarWidget'>
-            <h3>Click a date and add and event:</h3>
-            <p>Date selected: {this.state.eventDay}</p>
-            <form onSubmit={this.addEventHandler}>
-                <input id="EventName" type='text' placeholder='Event Name' onChange = {this.changeNameHandler}></input>
-                <br></br>
-                <button type="submit">Add event</button>                
-            </form>
-            
-            <FullCalendar 
-                defaultView="dayGridMonth"
-                plugins={[dayGridPlugin, interactionPlugin]}
-                events={this.state.Events}
-                dateClick={this.dateClickHandler}
-                selectable="true"
-            />
-  
-        </div>
+        <div className='App'>
+          <Calendar />
         </div>
   
         );
@@ -149,7 +124,7 @@ class App extends Component {
             <button onClick = {this.switchWidgetHandler.bind(this, "Tasks")}>Tasks</button>
             <button onClick = {this.switchWidgetHandler.bind(this, "StickyNotes")}>Sticky Notes</button>
           </div>
-          
+          <Tasks tasks={this.state.Tasks}/>
         </div>
   
         );
