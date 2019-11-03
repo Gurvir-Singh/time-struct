@@ -94,9 +94,9 @@ class Calendar extends Component {
                     <div className='CalendarWidget'>
                         <h3>Click a date and add and event:</h3>
                         <p>Date selected: {this.state.eventDay}</p>
-                        <form>
+                        <form onSubmit={this.addEventHandler}>
                             <input onChange={this.inputHandler}  type='text' placeholder='Event Name'></input>
-                            <button onClick={this.addEventHandler}>Add Event</button>
+                            <button type="submit">Add Event</button>
                         </form>
                         
                         <FullCalendar 
