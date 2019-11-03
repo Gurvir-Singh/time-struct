@@ -10,7 +10,8 @@ class Calendar extends Component {
     state = {
         eventDay: getTodaysDate(),
         events: [],
-        eventName: ""
+        eventName: "",
+        serverResponded: false
     };
   
     dateClickHandler = (arg) => {
@@ -53,10 +54,11 @@ class Calendar extends Component {
     fetch("http://127.0.0.1:8000/api/events/")
     .then(response => response.json())
     .then(response => {
-      console.log(response)
+      //console.log(response)
       this.setState(
         {
-          events: response
+          events: response,
+          
         }
       )
       this.state.events.map(event => {
@@ -68,30 +70,46 @@ class Calendar extends Component {
           delete event['id']
           delete event['owner']
       })
-      console.log(this.state.events)
+      //console.log(this.state.events)
+      this.setState(
+          {
+            serverResponded: true
+          }
+      )
     });
     }
     
     render(){
-        console.log(this.state.events)
-        return(
-            <div className='CalendarWidget'>
-                <h3>Click a date and add and event:</h3>
-                <p>Date selected: {this.state.eventDay}</p>
-                <form>
-                    <input onChange={this.inputHandler}  type='text' placeholder='Event Name'></input>
-                </form>
-                <button onClick={this.addEventHandler}>Add Event</button>
-                <FullCalendar 
-                    defaultView="dayGridMonth"
-                    plugins={[dayGridPlugin, interactionPlugin]}
-                    events={this.state.events}
-                    dateClick={this.dateClickHandler}
-                    selectable="false"
-                />
-    
-            </div>
-        );
+        //console.log(this.state.events)
+        switch (this.state.serverResponded){
+            case false:
+                return(
+                    <div className='loadingAnimation'>
+                        <p>loading</p>
+                    </div>
+                );
+                
+            case true:
+                return(
+                    <div className='CalendarWidget'>
+                        <h3>Click a date and add and event:</h3>
+                        <p>Date selected: {this.state.eventDay}</p>
+                        <form>
+                            <input onChange={this.inputHandler}  type='text' placeholder='Event Name'></input>
+                            <button onClick={this.addEventHandler}>Add Event</button>
+                        </form>
+                        
+                        <FullCalendar 
+                            defaultView="dayGridMonth"
+                            plugins={[dayGridPlugin, interactionPlugin]}
+                            events={this.state.events}
+                            dateClick={this.dateClickHandler}
+                            selectable="false"
+                        />
+            
+                    </div>
+                );
+            }
     }
 };
 
