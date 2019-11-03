@@ -2,13 +2,33 @@ import React, {Component} from 'react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid' 
 import interactionPlugin from '@fullcalendar/interaction' 
-import getTodaysDate from '../../Today.js'
+//import getTodaysDate from '../../Today.js'
 import Axios from 'axios';
 
 class Calendar extends Component {
 
+    getTodaysDate = () => {
+        var today = new Date();
+
+        var d = today.getDate();
+        var m = today.getMonth() + 1;
+    
+        var y = today.getFullYear();
+
+        if (d < 10) {
+            d = '0' + d;
+        } 
+        
+        if (m < 10) {
+            m = '0' + m;
+        } 
+        today = y + '-' + m + '-' + d;
+
+        return today;
+    }
+
     state = {
-        eventDay: getTodaysDate(),
+        eventDay: this.getTodaysDate(),
         events: [],
         eventName: "",
         serverResponded: false
