@@ -106,8 +106,13 @@ class App extends Component {
   
         return(
   
-        <div className='App'>
-          <Calendar />
+          <div className="App">
+          <div className="Buttons">        
+            <button onClick = {this.switchWidgetHandler.bind(this, "Calendar")}>Calender</button>
+            <button onClick = {this.switchWidgetHandler.bind(this, "Tasks")}>Tasks</button>
+            <button onClick = {this.switchWidgetHandler.bind(this, "StickyNotes")}>Sticky Notes</button>
+          </div>
+          <Calendar/>
         </div>
   
         );
