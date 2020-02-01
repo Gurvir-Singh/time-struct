@@ -25,7 +25,7 @@ SECRET_KEY = '9do-4tv&n4dh)#y#icc*wr2d1#jo=&_sv65lg#xc0z%w_o##gz'
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
-ALLOWED_HOSTS = ['timestruct.tk']
+ALLOWED_HOSTS = []
 
 
 # Application definition

@@ -26,7 +26,7 @@ class App extends Component {
   };
 
 
-  /*
+  
   componentDidMount() {
     Axios.get("http://127.0.0.1:8000/api/events/")
     .then(response => {
@@ -39,7 +39,7 @@ class App extends Component {
     });
     
   }
-  */
+  
 
   switchWidgetHandler = (switchedToWidget) => {
 
